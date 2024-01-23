@@ -12,29 +12,26 @@
   resultado: '',
 })
 
-const soma = () => {
-  const resultadoSoma = state.num1 + state.num2
-  state.resultado = resultadoSoma;
-  return state.resultado
-}
+const setNum1 = (event) => { state.num1 = Number(event.target.value); }; 
+const setNum2 = (event) => { state.num2 = Number(event.target.value); }; 
+const setOpera = (event) => { state.filtro = event.target.value; };
 
-const subtracao = () => {
-  const resultadoSubtracao = state.num1 - state.num2
-  state.resultado = resultadoSubtracao;
-  return state.resultado
-}
+const soma = () => { 
+  const resultadoSoma = state.num1 + state.num2; state.resultado = resultadoSoma; 
+};
 
-const multiplicacao = () => {
-  const resultadoMultiplicacao = state.num1 * state.num2
-  state.resultado = resultadoMultiplicacao;
-  return state.resultado
-}
+const subtracao = () => { 
+  const resultadoSubtracao = state.num1 - state.num2; state.resultado = resultadoSubtracao; 
+};
 
-const divisao = () => {
-  const resultadoDivisao = state.num1 / state.num2
-  state.resultado = resultadoDivisao
-  return state.resultado
-}
+const multiplicacao = () => { 
+  const resultadoMultiplicacao = state.num1 * state.num2; state.resultado = resultadoMultiplicacao; 
+};
+
+const divisao = () => { 
+  const resultadoDivisao = state.num1 / state.num2; state.resultado = resultadoDivisao; 
+};
+
 </script>
 
 <template>
@@ -42,8 +39,8 @@ const divisao = () => {
     <Header1 />
     <div class="row">
       <div class="d-inline-flex">
-        <Form1 :firstNumb="event => state.num1 = Number(event.target.value)" :secondNumb="event => state.num2 = Number(event.target.value)" :selectOpera="state.filtro" />
-        <Result :selectOpera="state.filtro" :funcSoma="soma()" :funcSub="subtracao()" :funcMult="multiplicacao()" :funcDivisao="divisao()" />
+        <Form1 :firstNumb="setNum1" :secondNumb="setNum2" :selectOpera="setOpera" />
+        <Result :selectOpera="state.filtro" :funcSoma="soma" :funcSub="subtracao" :funcMult="multiplicacao" :funcDivisao="divisao" />
       </div>
     </div>
   </div>
