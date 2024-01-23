@@ -2,7 +2,7 @@
 const props = defineProps(['firstNumb', 'secondNumb', 'selectOpera']);
 </script>
 <template>
-    <form @submit.prevent="props.cadastraTarefa">
+    <form>
         <div class="row">
             <div class="d-inline-flex">
                 <input @change="props.firstNumb" required
